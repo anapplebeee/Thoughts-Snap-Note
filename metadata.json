@@ -1,0 +1,6 @@
+{
+  "name": "微信想法随手记",
+  "description": "微信小程序风格的智能随手记：随手记录想法、AI大模型归档分类与总结、按日期与分类查看、微信聊天内容导入、密码与隐私端到端加密。",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
