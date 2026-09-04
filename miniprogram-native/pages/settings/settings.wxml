@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="quick-card">
+    <view class="sec-title">AI 模型配置</view>
+    <view class="field">
+      <text class="label">模型提供商</text>
+      <picker range="{{providerNames}}" value="{{providerIndex}}" bindchange="onProviderChange">
+        <view class="picker-value">{{providerNames[providerIndex]}}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="label">API Key（仅保存在本机）</text>
+      <input class="input" password value="{{apiKey}}" bindinput="onKeyInput" placeholder="sk-..." />
+    </view>
+    <block wx:if="{{provider==='custom'}}">
+      <view class="field">
+        <text class="label">接口地址</text>
+        <input class="input" value="{{baseUrl}}" bindinput="onUrlInput" placeholder="https://api.example.com/v1" />
+      </view>
+      <view class="field">
+        <text class="label">模型名</text>
+        <input class="input" value="{{modelName}}" bindinput="onModelInput" placeholder="gpt-4o-mini" />
+      </view>
+    </block>
+    <button class="save-btn" bindtap="onSaveCfg">保存配置</button>
+  </view>
+
+  <view class="quick-card" style="margin-top:24rpx;">
+    <view class="sec-title">数据</view>
+    <button class="plain-btn" bindtap="onExport">导出全部记录（复制 JSON）</button>
+  </view>
+
+  <view class="quick-card" style="margin-top:24rpx;">
+    <view class="sec-title">关于</view>
+    <text class="about">想法随手记 · AI 大模型增强版
+碎片灵感极速沉淀，AI 自动分类整理，端到端加密保险箱守护隐私。</text>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+/* 壳工程全局样式：web-view 会铺满导航栏以下区域，无需额外布局 */
+page {
+  height: 100%;
+  background: #ededed;
+}

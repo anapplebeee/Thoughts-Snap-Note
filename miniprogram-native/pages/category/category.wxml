@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="capsules">
+    <view
+      class="cap {{filter===item.name?'cap-on':''}}"
+      wx:for="{{cats}}"
+      wx:key="name"
+      data-name="{{item.name}}"
+      bindtap="onPick"
+    >{{item.name}} {{item.count}}</view>
+  </view>
+
+  <view class="list">
+    <view class="card" wx:for="{{filtered}}" wx:key="id">
+      <view class="card-top">
+        <text class="card-title">{{item.title}}</text>
+        <text class="tag">{{item.category}}</text>
+      </view>
+      <text class="card-content">{{item.content}}</text>
+    </view>
+    <view wx:if="{{filtered.length===0}}" class="empty">该分类暂无记录</view>
+  </view>
+</view>

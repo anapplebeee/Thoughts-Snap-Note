@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="quick-card">
+    <view class="sec-title">新建加密笔记</view>
+    <textarea class="quick-input" placeholder="敏感内容（密码 / 凭据 / 日记）…" value="{{draft}}" bindinput="onDraftInput" auto-height maxlength="2000" />
+    <view class="field">
+      <text class="label">主密码 PIN（4-8 位，仅存你脑海，不可找回）</text>
+      <input class="input" password value="{{pin}}" bindinput="onPinInput" placeholder="••••" />
+    </view>
+    <view class="row">
+      <button class="plain-btn" bindtap="onGenPwd">随机密码</button>
+      <button class="save-btn" bindtap="onAddEncrypted">加密保存</button>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="card" wx:for="{{items}}" wx:key="id" bindtap="onUnlock" data-id="{{item.id}}">
+      <view class="card-top">
+        <text class="card-title">加密笔记</text>
+        <text class="tag">密码隐私</text>
+      </view>
+      <text class="card-content">已加密，点按输入 PIN 解密</text>
+      <text class="date">{{item.dateText}}</text>
+    </view>
+    <view wx:if="{{items.length===0}}" class="empty">保险箱还是空的</view>
+  </view>
+
+  <view wx:if="{{unlocking}}" class="mask" bindtap="onCloseUnlock">
+    <view class="sheet" catchtap="noop">
+      <view class="sec-title">输入主密码解锁</view>
+      <input class="input" password value="{{unlockPin}}" bindinput="onUnlockPinInput" placeholder="PIN" />
+      <text wx:if="{{unlockError}}" class="err">{{unlockError}}</text>
+      <view class="row">
+        <button class="del" bindtap="onDeleteVault">删除</button>
+        <button class="save-btn" bindtap="onConfirmUnlock">解锁</button>
+      </view>
+      <text wx:if="{{decrypted}}" class="dec">{{decrypted}}</text>
+    </view>
+  </view>
+</view>

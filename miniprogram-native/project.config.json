@@ -1,0 +1,18 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "thoughts-snap-note-native",
+  "description": "想法随手记 原生小程序（参赛作品）",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "latest",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "condition": {}
+}

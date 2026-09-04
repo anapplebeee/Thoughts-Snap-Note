@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "想法随手记",
+    "navigationBarBackgroundColor": "#ededed",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ededed"
+  },
+  "sitemapLocation": "sitemap.json",
+  "resizable": false
+}

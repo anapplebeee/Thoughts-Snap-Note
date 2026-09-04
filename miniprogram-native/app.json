@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/calendar/calendar",
+    "pages/category/category",
+    "pages/vault/vault",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarTitleText": "想法随手记",
+    "navigationBarBackgroundColor": "#ededed",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ededed"
+  },
+  "tabBar": {
+    "color": "#9aa0a6",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "记录" },
+      { "pagePath": "pages/calendar/calendar", "text": "日历" },
+      { "pagePath": "pages/category/category", "text": "分类" },
+      { "pagePath": "pages/vault/vault", "text": "保险箱" },
+      { "pagePath": "pages/settings/settings", "text": "设置" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "resizable": false
+}

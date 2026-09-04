@@ -1,0 +1,18 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "thoughts-snap-note-webview",
+  "description": "想法随手记 web-view 小程序壳（内嵌已有 H5）",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "latest",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "condition": {}
+}

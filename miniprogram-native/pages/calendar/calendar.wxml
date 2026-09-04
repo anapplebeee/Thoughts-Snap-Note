@@ -1,0 +1,16 @@
+<view class="page">
+  <view wx:for="{{groups}}" wx:key="date" class="day-group">
+    <view class="day-head">
+      <text class="day-date">{{item.date}}</text>
+      <text class="day-count">{{item.items.length}} 条</text>
+    </view>
+    <view class="card" wx:for="{{item.items}}" wx:for-item="t" wx:key="id">
+      <view class="card-top">
+        <text class="card-title">{{t.title}}</text>
+        <text class="tag">{{t.category}}</text>
+      </view>
+      <text class="card-content">{{t.content}}</text>
+    </view>
+  </view>
+  <view wx:if="{{groups.length===0}}" class="empty">暂无记录</view>
+</view>

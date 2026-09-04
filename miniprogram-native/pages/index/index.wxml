@@ -1,0 +1,44 @@
+<view class="page">
+  <!-- 极速记录卡片 -->
+  <view class="quick-card">
+    <textarea class="quick-input" placeholder="此刻的想法…" value="{{draft}}" bindinput="onDraftInput" maxlength="2000" auto-height />
+    <view class="capsules">
+      <view class="cap {{draftCategory==='灵感创意'?'cap-on':''}}" data-cat="灵感创意" bindtap="onPickCat">突发灵感</view>
+      <view class="cap {{draftCategory==='工作任务'?'cap-on':''}}" data-cat="工作任务" bindtap="onPickCat">今日待办</view>
+      <view class="cap {{draftCategory==='学习笔记'?'cap-on':''}}" data-cat="学习笔记" bindtap="onPickCat">读书随感</view>
+      <view class="cap {{draftCategory==='财务记账'?'cap-on':''}}" data-cat="财务记账" bindtap="onPickCat">记一笔账</view>
+      <view class="cap {{draftCategory==='密码隐私'?'cap-on':''}}" data-cat="密码隐私" bindtap="onPickCat">密码备忘</view>
+    </view>
+    <view class="row">
+      <text class="hint">{{draftCategory || 'AI 自动分类'}}</text>
+      <button class="save-btn" bindtap="onSave" loading="{{saving}}">保存并 AI 整理</button>
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="list">
+    <view class="card" wx:for="{{thoughts}}" wx:key="id" bindtap="onOpen" data-id="{{item.id}}">
+      <view class="card-top">
+        <text class="card-title">{{item.title}}</text>
+        <text class="tag">{{item.category}}</text>
+      </view>
+      <text class="card-content">{{item.content}}</text>
+      <view class="card-foot">
+        <text class="date">{{item.dateText}}</text>
+        <text class="summary" wx:if="{{item.aiSummary}}">{{item.aiSummary}}</text>
+      </view>
+    </view>
+    <view wx:if="{{thoughts.length===0}}" class="empty">还没有记录，写下第一条吧</view>
+  </view>
+
+  <!-- 编辑 / 查看弹层 -->
+  <view wx:if="{{editing}}" class="mask" bindtap="onCloseEdit">
+    <view class="sheet" catchtap="noop">
+      <textarea class="edit-input" value="{{editContent}}" bindinput="onEditInput" auto-height maxlength="2000" />
+      <view class="row">
+        <button class="del" bindtap="onDelete">删除</button>
+        <button class="save-btn" bindtap="onUpdate">保存</button>
+      </view>
+    </view>
+  </view>
+</view>
